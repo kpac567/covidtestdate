@@ -2,14 +2,14 @@ require('dotenv').config({ path: './../../../../.env' });
 const faker = require('faker/locale/fr');
 const _ = require('lodash');
 const User = require('./model');
-const Covid = require('./../Covids/model');
+const Interest = require('./../interests/model');
 
 const user = new User();
-const Covid = new Covid();
+const interest = new Interest();
 const axios = require('axios');
 const ObjectsToCsv = require('objects-to-csv');
 
-let CovidsList = [];
+let interestsList = [];
 
 const createFakeUser = async () => {
   const firstName = faker.name.firstName();
@@ -47,10 +47,10 @@ function randomArrayInt(min, max) {
   return _.sortBy(_.uniq(array));
 }
 
-function randomArrayOfCovids(nbOfElements) {
+function randomArrayOfInterests(nbOfElements) {
   const array = [];
   for (let i = 0; i < nbOfElements; i++) {
-    array[i] = CovidsList[Math.floor(Math.random() * CovidsList.length)];
+    array[i] = interestsList[Math.floor(Math.random() * interestsList.length)];
   }
   return _.sortBy(_.uniq(array));
 }
@@ -82,14 +82,14 @@ const updateFakeUser = async userId => {
   infos.birthDate = faker.date.between('1940-01-01', '2001-12-31');
   infos.gender = randomArrayInt(1, 7);
   infos.sexualOrientation = randomArrayInt(1, 7);
-  infos.Covids = randomArrayOfCovids(10);
+  infos.interests = randomArrayOfInterests(10);
   infos.images = await generateFakeImages();
   infos.profilePicture = infos.images[0];
   await user.updateById(userId, infos);
 };
 
 const generateProfiles = async nbOfProfiles => {
-  CovidsList = await Covid.getAll().then(list => {
+  interestsList = await interest.getAll().then(list => {
     return list.map(element => element.name);
   });
   let profiles = [];

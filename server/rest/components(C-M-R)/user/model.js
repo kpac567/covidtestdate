@@ -64,7 +64,7 @@ class User {
       .split('T')[0];
   }
 
-  async searchUser(age, popularityRate, Covids, currentUserId) {
+  async searchUser(age, popularityRate, interests, currentUserId) {
     try {
       let [ageMinimum, ageMaximum] = age;
       let [popularityRateMinimum, popularityRateMaximum] = popularityRate;
@@ -81,14 +81,14 @@ class User {
       if (!popularityRateMaximum) {
         popularityRateMaximum = 100;
       }
-      if (!Covids) {
-        Covids = [];
+      if (!interests) {
+        interests = [];
       }
 
       const result = await db.any(
         ` SELECT id AS visitor, firstname, username, location,
           "birthDate", "popularityRate", gender, "sexualOrientation",
-          description, Covids, images, "profilePicture", suspended,
+          description, interests, images, "profilePicture", suspended,
           EXISTS(SELECT * FROM public."Like" WHERE "likingUser" = $6 AND "likedUser" = "User".id) AS liking,
           EXISTS(SELECT * FROM public."Like" WHERE "likedUser" = $6 AND "likingUser" = "User".id) AS liked
           FROM public."User"
@@ -96,7 +96,7 @@ class User {
           AND "birthDate" >= $2
           AND "popularityRate" >= $3
           AND "popularityRate" <= $4
-          AND Covids @> $5::text[]
+          AND interests @> $5::text[]
           AND suspended = false
           AND id != $6
           AND NOT EXISTS (
@@ -110,7 +110,7 @@ class User {
           this.ageToBirthdate(ageMaximum),
           popularityRateMinimum,
           popularityRateMaximum,
-          Covids,
+          interests,
           currentUserId,
         ],
       );
@@ -122,7 +122,7 @@ class User {
     }
   }
 
-  async compatibleUser(age, popularityRate, Covids, currentUserId) {
+  async compatibleUser(age, popularityRate, interests, currentUserId) {
     try {
       let [ageMinimum, ageMaximum] = age;
       let [popularityRateMinimum, popularityRateMaximum] = popularityRate;
@@ -139,8 +139,8 @@ class User {
       if (!popularityRateMaximum) {
         popularityRateMaximum = 100;
       }
-      if (!Covids) {
-        Covids = [];
+      if (!interests) {
+        interests = [];
       }
 
       const currentUserPreferences = await this.getByFiltered(
@@ -152,7 +152,7 @@ class User {
       const result = await db.any(
         ` SELECT id AS visitor, firstname, username, location,
           "birthDate", "popularityRate", gender, "sexualOrientation",
-          description, Covids, images, "profilePicture", suspended, "lastConnection" AS date,
+          description, interests, images, "profilePicture", suspended, "lastConnection" AS date,
           EXISTS(SELECT * FROM public."Like" WHERE "likingUser" = $6 AND "likedUser" = "User".id) AS liking,
           EXISTS(SELECT * FROM public."Like" WHERE "likedUser" = $6 AND "likingUser" = "User".id) AS liked
           FROM public."User"
@@ -160,7 +160,7 @@ class User {
           AND "birthDate" >= $2
           AND "popularityRate" >= $3
           AND "popularityRate" <= $4
-          AND Covids @> $5::text[]
+          AND interests @> $5::text[]
           AND suspended = false
           AND id != $6
           AND gender && $8::smallint[]
@@ -178,7 +178,7 @@ class User {
           this.ageToBirthdate(ageMaximum),
           popularityRateMinimum,
           popularityRateMaximum,
-          Covids,
+          interests,
           currentUserId,
           currentUserPreferences[0].gender,
           currentUserPreferences[0].sexualOrientation,

@@ -1,10 +1,10 @@
-const Covid = require('./model');
+const Interest = require('./model');
 
-const Covids = new Covid();
+const interests = new Interest();
 
-async function getCovids(request, response) {
+async function getInterests(request, response) {
   try {
-    const call = await Covids.getAll();
+    const call = await interests.getAll();
     response.status(200).json(call);
   } catch (err) {
     if (process.env.VERBOSE === 'true') console.log(err);
@@ -12,10 +12,10 @@ async function getCovids(request, response) {
   }
 }
 
-async function getCovidById(request, response) {
+async function getInterestById(request, response) {
   const id = parseInt(request.params.id, 10);
   try {
-    const call = await Covids.getBy('id', id);
+    const call = await interests.getBy('id', id);
     response.status(200).json(call);
   } catch (err) {
     if (process.env.VERBOSE === 'true') console.log(err);
@@ -23,5 +23,5 @@ async function getCovidById(request, response) {
   }
 }
 
-module.exports.getCovids = getCovids;
-module.exports.getCovidById = getCovidById;
+module.exports.getInterests = getInterests;
+module.exports.getInterestById = getInterestById;

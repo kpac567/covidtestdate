@@ -11,7 +11,7 @@ const SuggestionsContainer = () => {
   const [suggestionsOptions, setSuggestionsOptions] = useState({
     ageRange: [18, 85],
     popularityRange: [0, 100],
-    Covids: [],
+    interests: [],
     distanceMax: 100,
     sort: 'score',
   });
@@ -80,7 +80,7 @@ const SuggestionsContainer = () => {
       case 'popularity':
         order = 'desc';
         break;
-      case 'Covids':
+      case 'interests':
         order = 'asc';
         break;
       default:
@@ -106,8 +106,8 @@ const SuggestionsContainer = () => {
                 return profile.age;
               case 'popularity':
                 return profile.popularityRate;
-              case 'Covids':
-                return profile.Covids[0] ? profile.Covids[0] : 'ZZZZ';
+              case 'interests':
+                return profile.interests[0] ? profile.interests[0] : 'ZZZZ';
               default:
             }
           },
@@ -118,9 +118,9 @@ const SuggestionsContainer = () => {
   };
 
   const handleChangeSlider = (type, newValue) => {
-    if (type === 'Covids') {
-      newValue = newValue.map(Covid => {
-        return Covid.name;
+    if (type === 'interests') {
+      newValue = newValue.map(interest => {
+        return interest.name;
       });
       const newSuggestionsOptions = { ...suggestionsOptions, [type]: newValue };
       setSuggestionsOptions(newSuggestionsOptions);

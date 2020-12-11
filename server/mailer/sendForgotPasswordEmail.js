@@ -5,8 +5,8 @@ const sendForgotPasswordEmail = async (email, firstname, token) => {
     Messages: [
       {
         From: {
-          Email: 'secretpoursociety@gmail.com',
-          Name: 'crush-19',
+          Email: 'yann.petitjean06@gmail.com',
+          Name: 'crush',
         },
         To: [
           {
@@ -16,7 +16,7 @@ const sendForgotPasswordEmail = async (email, firstname, token) => {
         ],
         TemplateID: 1091114,
         TemplateLanguage: true,
-        Subject: 'crush-19',
+        Subject: 'crush - Mot de passe oublié',
         Variables: {
           firstname,
           COMFIRMATION_TOKEN: token,

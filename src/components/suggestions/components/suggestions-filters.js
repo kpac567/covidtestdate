@@ -27,8 +27,8 @@ const sortOptions = [
     label: 'Popularity',
   },
   {
-    value: 'Covids',
-    label: 'Covids',
+    value: 'interests',
+    label: 'Interests',
   },
 ];
 
@@ -117,26 +117,26 @@ const SuggestionsFilters = ({
             className={classes.titleGutterbottom}
             align="center"
           >
-            Covids
+            Interests
           </Typography>
-          <div className={classes.CovidChips}>
+          <div className={classes.interestChips}>
             <div>
               <Autocomplete
                 className={classes.slider}
                 multiple
-                options={currentUserProfile.Covids.map(Covid => {
-                  return { name: Covid };
+                options={currentUserProfile.interests.map(interest => {
+                  return { name: interest };
                 })}
                 getOptionLabel={option => option.name}
                 onChange={(event, value) => {
-                  handleChangeSlider('Covids', value);
+                  handleChangeSlider('interests', value);
                 }}
-                name="Covid"
+                name="interest"
                 renderInput={params => (
                   <TextField
                     {...params}
                     variant="outlined"
-                    placeholder="Add Covid"
+                    placeholder="Add interest"
                     fullWidth
                   />
                 )}

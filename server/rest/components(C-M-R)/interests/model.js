@@ -1,6 +1,6 @@
 const { db } = require('../../../config/database');
 
-class Covid {
+class Interest {
   isValidType(type) {
     const authorizedTypes = ['id', 'name'];
     return authorizedTypes.some(authorizedType => {
@@ -12,19 +12,19 @@ class Covid {
     try {
       if (!this.isValidType(type)) {
         if (process.env.VERBOSE === 'true')
-          console.log(`Covid.getBy(): ${type} is not an authorized type`);
+          console.log(`Interest.getBy(): ${type} is not an authorized type`);
         return null;
       }
       if (process.env.VERBOSE === 'true')
-        console.log(`SELECT * FROM public."Covid" WHERE ${type} = ${value}`);
+        console.log(`SELECT * FROM public."Interest" WHERE ${type} = ${value}`);
       const result = await db.any(
-        `SELECT * FROM public."Covid" WHERE $1:name = $2`,
+        `SELECT * FROM public."Interest" WHERE $1:name = $2`,
         [type, value],
       );
       return result;
     } catch (err) {
       if (process.env.VERBOSE === 'true')
-        console.log(err, 'in model Covid.getBy()');
+        console.log(err, 'in model Interest.getBy()');
       return null;
     }
   }
@@ -32,12 +32,12 @@ class Covid {
   async getAll() {
     try {
       if (process.env.VERBOSE === 'true')
-        console.log('SELECT * FROM public."Covid"');
-      const result = await db.any('SELECT * FROM public."Covid"');
+        console.log('SELECT * FROM public."Interest"');
+      const result = await db.any('SELECT * FROM public."Interest"');
       return result;
     } catch (err) {
       if (process.env.VERBOSE === 'true')
-        console.log(err, 'in model Covid.getAll()');
+        console.log(err, 'in model Interest.getAll()');
       return null;
     }
   }
@@ -47,24 +47,24 @@ class Covid {
       if (!value) return false;
       if (!this.isValidType(type)) {
         if (process.env.VERBOSE === 'true')
-          console.log(`Covid.exists(): ${type} is not an authorized type`);
+          console.log(`Interest.exists(): ${type} is not an authorized type`);
         return null;
       }
       if (process.env.VERBOSE === 'true')
         console.log(
-          `SELECT exists(SELECT from public."Covid" WHERE ${type} = ${value})`,
+          `SELECT exists(SELECT from public."Interest" WHERE ${type} = ${value})`,
         );
       const result = await db.none(
-        `SELECT exists(SELECT from public."Covid" WHERE id = ALL($2));`,
+        `SELECT exists(SELECT from public."Interest" WHERE id = ALL($2));`,
         [value],
       );
       return result[0].exists;
     } catch (err) {
       if (process.env.VERBOSE === 'true')
-        console.log(err, 'in model Covid.exists()');
+        console.log(err, 'in model Interest.exists()');
       return null;
     }
   }
 }
 
-module.exports = Covid;
+module.exports = Interest;

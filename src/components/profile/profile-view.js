@@ -163,7 +163,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '400px',
     width: '100%',
   },
-  CovidChips: {
+  interestChips: {
     display: 'flex',
     justifyContent: 'flex-start',
     flexWrap: 'wrap',
@@ -228,10 +228,10 @@ const Profile = params => {
     sendCroppedImageServer,
   } = UseProfileForm(authContext.userData, authContext.token);
   const {
-    Covids,
+    interests,
     notificationMail,
     notificationPush,
-    CovidNames,
+    interestNames,
   } = profile;
 
   // change tabs
@@ -324,8 +324,8 @@ const Profile = params => {
             isChecked={isChecked}
             handleProfileChange={handleProfileChange}
             handleSubmitParameters={handleSubmitParameters}
-            Covids={Covids}
-            CovidNames={CovidNames}
+            interests={interests}
+            interestNames={interestNames}
             handleChangeLocation={handleChangeLocation}
             notificationMail={notificationMail}
             notificationPush={notificationPush}

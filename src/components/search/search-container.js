@@ -11,7 +11,7 @@ const SearchContainer = () => {
   const [searchOptions, setSearchOptions] = useState({
     ageRange: [18, 85],
     popularityRange: [0, 100],
-    Covids: [],
+    interests: [],
     distanceMax: 100,
     sort: '',
   });
@@ -77,7 +77,7 @@ const SearchContainer = () => {
       case 'popularity':
         order = 'desc';
         break;
-      case 'Covids':
+      case 'interests':
         order = 'asc';
         break;
       default:
@@ -98,8 +98,8 @@ const SearchContainer = () => {
                 return profile.age;
               case 'popularity':
                 return profile.popularityRate;
-              case 'Covids':
-                return profile.Covids[0] ? profile.Covids[0] : 'ZZZZ';
+              case 'interests':
+                return profile.interests[0] ? profile.interests[0] : 'ZZZZ';
               default:
             }
           },
@@ -110,9 +110,9 @@ const SearchContainer = () => {
   };
 
   const handleChangeSlider = (type, newValue) => {
-    if (type === 'Covids') {
-      newValue = newValue.map(Covid => {
-        return Covid.name;
+    if (type === 'interests') {
+      newValue = newValue.map(interest => {
+        return interest.name;
       });
       const newSearchOptions = { ...searchOptions, [type]: newValue };
       setSearchOptions(newSearchOptions);

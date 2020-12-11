@@ -250,7 +250,7 @@ const Home = ({ location }) => {
                     Search
                   </Typography>
                   <Typography className={classes.paperText}>
-                    You can filter users according to your Covids, age,
+                    You can filter users according to your interests, age,
                     distance... Have fun!
                   </Typography>
                   <Fab
@@ -279,7 +279,7 @@ const Home = ({ location }) => {
             </Typography>
             <Typography>
               Start meeting new people in your area! If you already have an
-              account, sign in to use crush-19.
+              account, sign in to use crush.
             </Typography>
             <div className={classes.CTAWrapper}>
               <Fab

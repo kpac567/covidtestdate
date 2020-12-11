@@ -51,7 +51,7 @@ async function getMyUserInfo(request, response) {
       'gender',
       'sexualOrientation',
       'description',
-      'Covids',
+      'interests',
       'images',
       'profilePicture',
       'notificationMail',
@@ -69,13 +69,13 @@ async function getUserById(request, response) {
   try {
     const call = await user.getByFiltered('id', id, [
       'firstname',
-      'location', 
-      'birthDate', 
+      'location', // a voir si on traite avant de l'envoyer
+      'birthDate', // a voir si on traite avant de l'envoyer
       'popularityRate',
       'gender',
       'sexualOrientation',
       'description',
-      'Covids',
+      'interests',
       'images',
       'profilePicture',
     ]);
@@ -100,7 +100,7 @@ async function getUserByUsername(request, response) {
       'gender',
       'sexualOrientation',
       'description',
-      'Covids',
+      'interests',
       'images',
       'profilePicture',
       'lastConnection',
@@ -281,7 +281,7 @@ const distanceCalculator = (userLocation, otherUserLocation) => {
 
 async function search(request, response) {
   const id = request.decoded.userid;
-  let { ageRange, popularityRange, Covids, distanceMax } = request.body;
+  let { ageRange, popularityRange, interests, distanceMax } = request.body;
 
   if ((await checkIfProfileCompleted(id)) === false) {
     return response.status(200).json({
@@ -300,7 +300,7 @@ async function search(request, response) {
     let userSearchResult = await user.searchUser(
       [ageMinimum, ageMaximum],
       [popularityRateMinimum, popularityRateMaximum],
-      Covids,
+      interests,
       id,
     );
     let currentUserLocation = await user.getByFiltered('id', id, ['location']);
@@ -321,15 +321,15 @@ async function search(request, response) {
   }
 }
 
-const CovidScore = (currentUserCovids, otherUserCovids) => {
-  const nbOfCommonCovids = _.intersection(
-    currentUserCovids,
-    otherUserCovids,
+const interestScore = (currentUserInterests, otherUserInterests) => {
+  const nbOfCommonInterests = _.intersection(
+    currentUserInterests,
+    otherUserInterests,
   ).length;
-  if (nbOfCommonCovids <= 3) {
-    return nbOfCommonCovids * (1 / 3) * 100;
+  if (nbOfCommonInterests <= 3) {
+    return nbOfCommonInterests * (1 / 3) * 100;
   }
-  return 100 + (nbOfCommonCovids - 3) * 10;
+  return 100 + (nbOfCommonInterests - 3) * 10;
 };
 
 const distanceScore = distance => {
@@ -344,7 +344,7 @@ const popularityScore = (currentUserPopularity, otherUserPopularity) => {
 
 async function suggestions(request, response) {
   const id = request.decoded.userid;
-  let { ageRange, popularityRange, Covids, distanceMax } = request.body;
+  let { ageRange, popularityRange, interests, distanceMax } = request.body;
   if ((await checkIfProfileCompleted(id)) === false) {
     return response.status(200).json({
       authorized: false,
@@ -362,12 +362,12 @@ async function suggestions(request, response) {
     let userSearchResult = await user.compatibleUser(
       [ageMinimum, ageMaximum],
       [popularityRateMinimum, popularityRateMaximum],
-      Covids,
+      interests,
       id,
     );
     let currentUser = await user.getByFiltered('id', id, [
       'location',
-      'Covids',
+      'interests',
       'popularityRate',
     ]);
     currentUser = currentUser[0];
@@ -380,7 +380,7 @@ async function suggestions(request, response) {
     userSearchResult.forEach(profile => {
       profile.age = getAge(profile.birthDate);
       profile.score =
-        CovidScore(currentUser.Covids, profile.Covids) * 0.6 +
+        interestScore(currentUser.interests, profile.interests) * 0.6 +
         distanceScore(profile.distance) * 0.25 +
         popularityScore(currentUser.popularityRate, profile.popularityRate) *
           0.15;

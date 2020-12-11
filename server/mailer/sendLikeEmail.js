@@ -17,8 +17,8 @@ const sendLikeEmail = async (likedUserId, likingUserId) => {
     Messages: [
       {
         From: {
-          Email: 'secretpoursociety@gmail.com',
-          Name: 'crush-19',
+          Email: 'yann.petitjean06@gmail.com',
+          Name: 'crush',
         },
         To: [
           {
@@ -28,7 +28,7 @@ const sendLikeEmail = async (likedUserId, likingUserId) => {
         ],
         TemplateID: 1197417,
         TemplateLanguage: true,
-        Subject: 'Someone likes you on crush-19 🔥',
+        Subject: 'Someone likes you on crush 🔥',
         Variables: {
           firstname,
           likinguser: likingUser,

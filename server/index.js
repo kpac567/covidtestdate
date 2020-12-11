@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 
 app.use('/users', require('./rest/components(C-M-R)/user/routes'));
 app.use('/genders', require('./rest/components(C-M-R)/gender/routes'));
-app.use('/Covids', require('./rest/components(C-M-R)/Covids/routes'));
+app.use('/interests', require('./rest/components(C-M-R)/interests/routes'));
 app.use('/auth', require('./rest/components(C-M-R)/auth/routes'));
 app.use('/visits', require('./rest/components(C-M-R)/visit/routes'));
 app.use('/matchs', require('./rest/components(C-M-R)/match/routes'));
@@ -55,5 +55,5 @@ global.io = require('socket.io')(server);
 require('./socket/socket')();
 
 server.listen(port, () => {
-  console.log(`crush-19 is listening on port ${port}!`);
+  console.log(`crush is listening on port ${port}!`);
 });

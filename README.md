@@ -3,9 +3,9 @@
 
 ## The project
 
-crush-19 is a dating app with the following features:
+crush is a dating app with the following features:
 * 🌈 non-binary gender & sexual orientation choices
-* 💘 matching algorithm based on preferences, distance, common Covids and popularity rates
+* 💘 matching algorithm based on preferences, distance, common interests and popularity rates
 * 🛎 real-time notifications
 * 💌 chat
 * 🚫 possibility to block or report a user
@@ -47,10 +47,10 @@ crush-19 is a dating app with the following features:
 [![Notifications](https://iili.io/Jfl21f.png)](https://freeimage.host/i/capture-decran-2020-03-30-131952.Jfl21f)
 
 ## How we've been working
-* 🗓 Planning the project and user stories on Trello : [The Project Board](https://trello.com/b/RLNAgAuw/crush-19-launch)
+* 🗓 Planning the project and user stories on Trello : [The Project Board](https://trello.com/b/RLNAgAuw/crush-launch)
 * 🗄 Designing the database on dbdiagram.io
 [![Database-diagram](https://iili.io/JfcVO7.png)](https://freeimage.host/i/capture-decran-2020-03-30-121118.JfcVO7)
-* 🎨 Designing simple wireframes on Figma : [The Wireframes](https://www.figma.com/file/daD5AHhiB3XmfUPdi4PhsS/crush-19?node-id=0%3A1)
+* 🎨 Designing simple wireframes on Figma : [The Wireframes](https://www.figma.com/file/daD5AHhiB3XmfUPdi4PhsS/crush?node-id=0%3A1)
 
 ## Credits
 

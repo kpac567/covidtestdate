@@ -41,7 +41,7 @@ async function booleanToken(request, response) {
       'gender',
       'sexualOrientation',
       'description',
-      'Covids',
+      'interests',
       'images',
       'profilePicture',
       'notificationMail',

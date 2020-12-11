@@ -42,18 +42,19 @@ const TabPanelProfileAbout = ({
       <Grid container>
         <Grid item sm={8} className={classes.gridColumnProfile}>
           <FormCheckBox
-            title="Covid Status"
+            title="Gender"
             classes={classes}
             isChecked={isChecked}
             handleProfileChange={handleProfileChange}
-            name="Covid Status"
+            name="gender"
             label={[
-              'Vaccinated',
-              'Antibodies',
-              'Quarantining',
-              'Unknown',
-              'High level exposure',
-              'Low level exposure',
+              'Woman',
+              'Man',
+              'Cis Woman',
+              'Cis Man',
+              'Trans Woman',
+              'Trans Man',
+              'Non-binary',
             ]}
           />
           <FormCheckBox
@@ -61,15 +62,15 @@ const TabPanelProfileAbout = ({
             classes={classes}
             isChecked={isChecked}
             handleProfileChange={handleProfileChange}
-            name="Covid Status"
+            name="sexualOrientation"
             label={[
-              'Vaccinated',
-              'Antibodies',
-              'Quarantining',
-              'Unknown',
-              'High level exposure',
+              'Woman',
+              'Man',
+              'Cis Woman',
+              'Cis Man',
+              'Trans Woman',
               'Trans Man',
-              'Low level exposure',
+              'Non-binary',
             ]}
           />
           <InputTextShort

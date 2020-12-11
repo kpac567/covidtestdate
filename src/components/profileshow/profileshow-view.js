@@ -232,16 +232,16 @@ const ProfileShow = ({ computedMatch }) => {
           <Grid item sm={6} className={classes.columnPublicProfile}>
             <Typography variant="subtitle1" className={classes.item}>
               <Box fontWeight="fontWeightBold">
-                {visitedProfile.firstname}'s Covids
+                {visitedProfile.firstname}'s interests
               </Box>
             </Typography>
-            {_.isEmpty(visitedProfile.Covids) ? (
-              <p>No Covids defined so far</p>
+            {_.isEmpty(visitedProfile.interests) ? (
+              <p>No interests defined so far</p>
             ) : (
               <ChipsList
                 classes={classes}
-                list={visitedProfile.Covids}
-                type="Covids"
+                list={visitedProfile.interests}
+                type="interests"
               />
             )}
             <Typography variant="subtitle1" className={classes.item}>

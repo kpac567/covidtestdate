@@ -1,3 +1,6 @@
+/* eslint-disable no-async-promise-executor */
+/* eslint-disable func-names */
+/* eslint-disable class-methods-use-this */
 const _ = require('lodash');
 const Gender = require('../gender/model');
 const Visit = require('../visit/model');
@@ -303,7 +306,7 @@ class UserInputTests {
         'gender',
         'sexualOrientation',
         'description',
-        'Covids',
+        'interests',
         'images',
         'profilePicture',
         'location',
@@ -320,7 +323,7 @@ class UserInputTests {
         'gender',
         'sexualOrientation',
         'description',
-        'Covids',
+        'interests',
         'images',
         'profilePicture',
         'location',
@@ -363,7 +366,7 @@ const checkIfProfileCompleted = userid => {
       'location',
       'gender',
       'sexualOrientation',
-      'Covids',
+      'interests',
     ])
     .then(data => {
       const { birthDate } = data[0];

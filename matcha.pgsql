@@ -88,10 +88,10 @@ CREATE TABLE public."Gender" (
 ALTER TABLE public."Gender" OWNER TO yann;
 
 --
--- Name: Covid_seq; Type: SEQUENCE; Schema: public; Owner: yann
+-- Name: interest_seq; Type: SEQUENCE; Schema: public; Owner: yann
 --
 
-CREATE SEQUENCE public.Covid_seq
+CREATE SEQUENCE public.interest_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -99,19 +99,19 @@ CREATE SEQUENCE public.Covid_seq
     CACHE 1;
 
 
-ALTER TABLE public.Covid_seq OWNER TO yann;
+ALTER TABLE public.interest_seq OWNER TO yann;
 
 --
--- Name: Covid; Type: TABLE; Schema: public; Owner: yann
+-- Name: Interest; Type: TABLE; Schema: public; Owner: yann
 --
 
-CREATE TABLE public."Covid" (
-    id integer DEFAULT nextval('public.Covid_seq'::regclass) NOT NULL,
+CREATE TABLE public."Interest" (
+    id integer DEFAULT nextval('public.interest_seq'::regclass) NOT NULL,
     name text NOT NULL
 );
 
 
-ALTER TABLE public."Covid" OWNER TO yann;
+ALTER TABLE public."Interest" OWNER TO yann;
 
 --
 -- Name: like_seq; Type: SEQUENCE; Schema: public; Owner: yann
@@ -257,7 +257,7 @@ CREATE TABLE public."User" (
     gender integer,
     "sexualOrientation" integer,
     description text,
-    Covids integer[],
+    interests integer[],
     images text[],
     "profilePicture" text,
     location numeric[],
@@ -348,16 +348,16 @@ COPY public."Gender" (id, name) FROM stdin;
 
 
 --
--- Data for Name: Covid; Type: TABLE DATA; Schema: public; Owner: yann
+-- Data for Name: Interest; Type: TABLE DATA; Schema: public; Owner: yann
 --
 
-COPY public."Covid" (id, name) FROM stdin;
-1	Vaccinated
-2	Antibodies
-3	Quarantining
-4	High level exposure
-5	Low level exposure
-6	Unknown
+COPY public."Interest" (id, name) FROM stdin;
+1	poney
+2	cuisine
+3	ken
+4	des bisous
+5	yoga
+6	les gentils
 \.
 
 
@@ -397,7 +397,7 @@ COPY public."Report" (id, "reportedUser", "reportingUser") FROM stdin;
 -- Data for Name: User; Type: TABLE DATA; Schema: public; Owner: yann
 --
 
-COPY public."User" (id, firstname, surname, username, password, email, validated, suspended, gender, "sexualOrientation", description, Covids, images, "profilePicture", location, "notificationMail", "notificationPush", "lastVisit", "popularityRate", "birthDate") FROM stdin;
+COPY public."User" (id, firstname, surname, username, password, email, validated, suspended, gender, "sexualOrientation", description, interests, images, "profilePicture", location, "notificationMail", "notificationPush", "lastVisit", "popularityRate", "birthDate") FROM stdin;
 1	yann	petitjean	ypetitje	yann	yann@yann.com	t	f	\N	\N	\N	\N	\N	\N	{1,2}	t	t	\N	\N	\N
 2	sego	alquier	salquier	sego	sego@sego.com	t	f	\N	\N	\N	\N	\N	\N	\N	t	t	\N	\N	\N
 3	baptiste	fraikin	bafraiki	baba	sego@sego.com	t	t	\N	\N	\N	\N	\N	\N	\N	t	t	\N	\N	\N
@@ -538,10 +538,10 @@ SELECT pg_catalog.setval('public.gender_seq', 4, true);
 
 
 --
--- Name: covid_seq; Type: SEQUENCE SET; Schema: public; Owner: yann
+-- Name: interest_seq; Type: SEQUENCE SET; Schema: public; Owner: yann
 --
 
-SELECT pg_catalog.setval('public.Covid_seq', 6, true);
+SELECT pg_catalog.setval('public.interest_seq', 6, true);
 
 
 --
@@ -610,11 +610,11 @@ ALTER TABLE ONLY public."Gender"
 
 
 --
--- Name: Covid pk_Covid; Type: CONSTRAINT; Schema: public; Owner: yann
+-- Name: Interest pk_Interest; Type: CONSTRAINT; Schema: public; Owner: yann
 --
 
-ALTER TABLE ONLY public."Covid"
-    ADD CONSTRAINT "pk_Covid" PRIMARY KEY (id);
+ALTER TABLE ONLY public."Interest"
+    ADD CONSTRAINT "pk_Interest" PRIMARY KEY (id);
 
 
 --

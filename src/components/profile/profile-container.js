@@ -16,9 +16,9 @@ const UseProfileForm = (userData, token) => {
   const [croppedImage, setCroppedImage] = useState(null);
   const [finalImage, setFinalImage] = useState(null);
 
-  const fetchCovids = () =>
+  const fetchInterests = () =>
     axios
-      .get(`${process.env.REACT_APP_PUBLIC_API_URL}/Covids`, {
+      .get(`${process.env.REACT_APP_PUBLIC_API_URL}/interests`, {
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
           'x-access-token': token,
@@ -32,12 +32,12 @@ const UseProfileForm = (userData, token) => {
       });
 
   if (_.isEmpty(profile)) {
-    Promise.all([userData, fetchCovids()]).then(values => {
+    Promise.all([userData, fetchInterests()]).then(values => {
       const tempUserData = values[0].data;
       tempUserData.birthDate = new Date(tempUserData.birthDate)
         .toISOString()
         .split('T')[0];
-      tempUserData.CovidNames = values[1];
+      tempUserData.interestNames = values[1];
       setProfile(tempUserData);
       setLoaded(true);
     });
@@ -129,27 +129,27 @@ const UseProfileForm = (userData, token) => {
     };
   };
 
-  const handleCovidChange = event => {
+  const handleInterestChange = event => {
     if (event.target.textContent === '') {
-      const CovidToDelete = event.currentTarget.closest('div').textContent;
-      const newCovids = profile.Covids;
-      newCovids.splice(profile.Covids.indexOf(CovidToDelete), 1);
+      const interestToDelete = event.currentTarget.closest('div').textContent;
+      const newInterests = profile.interests;
+      newInterests.splice(profile.interests.indexOf(interestToDelete), 1);
       newInput = {
         ...profile,
-        Covids: newCovids,
+        interests: newInterests,
       };
       newChangedFields = {
         ...changedFields,
-        Covids: newCovids,
+        interests: newInterests,
       };
     } else {
       newInput = {
         ...profile,
-        Covids: [...profile.Covids, event.target.textContent],
+        interests: [...profile.interests, event.target.textContent],
       };
       newChangedFields = {
         ...changedFields,
-        Covids: [...profile.Covids, event.target.textContent],
+        interests: [...profile.interests, event.target.textContent],
       };
     }
   };
@@ -183,7 +183,7 @@ const UseProfileForm = (userData, token) => {
         handleSummaryChange(event);
       }
       if (event.type === 'click') {
-        handleCovidChange(event);
+        handleInterestChange(event);
       } else {
         handleTextParametersChange(event);
       }
@@ -396,12 +396,12 @@ const UseProfileForm = (userData, token) => {
     profile,
     loaded,
     handleChangeProfileImage,
-    handleCovidChange,
+    handleInterestChange,
     handleChangeLocation,
     handleSubmitParameters,
     isChecked,
     getAge,
-    fetchCovids,
+    fetchInterests,
     deleteUser,
     showModal,
     setShowModal,

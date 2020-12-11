@@ -40,8 +40,8 @@ const TabPanelProfileParameters = ({
   isChecked,
   handleProfileChange,
   handleSubmitParameters,
-  Covids,
-  CovidNames,
+  interests,
+  interestNames,
   handleChangeLocation,
   notificationMail,
   notificationPush,
@@ -136,25 +136,25 @@ const TabPanelProfileParameters = ({
           <Grid item sm={6} className={classes.gridColumnProfile}>
             <div className={classes.formControl}>
               <Typography variant="subtitle1">
-                <Box fontWeight="fontWeightBold">Covids</Box>
+                <Box fontWeight="fontWeightBold">Interests</Box>
               </Typography>
-              <div className={classes.CovidChips}>
+              <div className={classes.interestChips}>
                 <div>
                   <Autocomplete
                     multiple
-                    options={CovidNames}
+                    options={interestNames}
                     getOptionLabel={option => option.name}
-                    defaultValue={Covids.map(Covid => {
-                      return { name: Covid };
+                    defaultValue={interests.map(interest => {
+                      return { name: interest };
                     })}
                     style={{ width: 300 }}
                     onChange={handleProfileChange}
-                    name="Covid"
+                    name="interest"
                     renderInput={params => (
                       <TextField
                         {...params}
                         variant="outlined"
-                        placeholder="Add Covid"
+                        placeholder="Add interest"
                         fullWidth
                       />
                     )}
