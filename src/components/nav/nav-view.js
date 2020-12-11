@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  Crush-19Logo: {
+  crush-19Logo: {
     flexGrow: 1,
   },
   navIcon: {
@@ -180,13 +180,13 @@ const Nav = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" className={classes.Crush-19Logo}>
+        <Typography variant="h6" className={classes.crush-19Logo}>
           <Link
             href="/"
             style={{ textDecoration: 'none' }}
             className={classes.navIcon}
           >
-            Crush-19
+            crush-19
           </Link>
         </Typography>
         {isLoggedIn ? (

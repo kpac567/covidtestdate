@@ -279,7 +279,7 @@ const Home = ({ location }) => {
             </Typography>
             <Typography>
               Start meeting new people in your area! If you already have an
-              account, sign in to use Crush-19.
+              account, sign in to use crush-19.
             </Typography>
             <div className={classes.CTAWrapper}>
               <Fab

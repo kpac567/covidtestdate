@@ -55,5 +55,5 @@ global.io = require('socket.io')(server);
 require('./socket/socket')();
 
 server.listen(port, () => {
-  console.log(`Crush-19 is listening on port ${port}!`);
+  console.log(`crush-19 is listening on port ${port}!`);
 });

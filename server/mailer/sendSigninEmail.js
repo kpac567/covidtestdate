@@ -6,7 +6,7 @@ const sendSigninEmail = async (email, firstname, token) => {
       {
         From: {
           Email: 'secretpoursociety@gmail.com',
-          Name: 'Crush-19',
+          Name: 'crush-19',
         },
         To: [
           {
@@ -16,7 +16,7 @@ const sendSigninEmail = async (email, firstname, token) => {
         ],
         TemplateID: 1085893,
         TemplateLanguage: true,
-        Subject: 'Crush-19',
+        Subject: 'crush-19',
         Variables: {
           firstname,
           COMFIRMATION_TOKEN: token,
