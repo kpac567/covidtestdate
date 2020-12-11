@@ -1,32 +1,57 @@
-# Matched
+# 💘 Dating app
+### Built with Node, React, Postgres, Socket.io & Material-UI
 
-This project was created as an example app to using React Native with Managed Expo. The app also used React-Navigation.
+## The project
 
-Managed Expo v0.39
+Matcha is a dating app with the following features:
+* 🌈 non-binary gender & sexual orientation choices
+* 💘 matching algorithm based on preferences, distance, common Covids and popularity rates
+* 🛎 real-time notifications
+* 💌 chat
+* 🚫 possibility to block or report a user
 
-### Demo
+## How to quickly try it?
 
-[Demo on Expo Client](https://expo.io/@cameronmoreau/matched)
+👉 The project is hosted on Heroku: https://maatcha.herokuapp.com/ 
 
-or type `exp://exp.host/@cameronmoreau/matched`
+💡 If you don't want to go through the sign-up process, here are a few login credentials you can use:
+```
+* maëlle16675 // xLDUD5AOSsLL2rs
+* romain81397 // K1XZ_qxOGYsQnr1
+* noémie36222 // ac3i707y193nqWs
+```
 
-### Screenshots
+## The stack
+### Back
+* [Node](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
+* [Postgres](https://www.postgresql.org/)
+* [Socket.io](https://socket.io/) : real-time engine (chat + notifications)
+* [AWS](https://aws.amazon.com/fr/s3/) : images hosting
 
-<img src="screenshots/explore.png" width="250" alt="Explore" />
-<img src="screenshots/messages.png" width="250" alt="Messages" />
-<img src="screenshots/chat.png" width="250" alt="Chat" />
+### Front
+* [React](https://reactjs.org/)
+* [Material-Ui](https://material-ui.com/) : React UI framework
 
-## Libraries
+### API we used
+* [Google maps](https://developers.google.com/maps/documentation/javascript/tutorial)
+* [Mailjet](https://www.mailjet.com/)
+* [Faker](https://github.com/marak/Faker.js/) : to generate fake profiles for the seed
 
-- [expo](https://github.com/expo/expo): Platform on top of react-native to manage native platform code
-- [react-navigation](https://github.com/react-community/react-navigation): Routing, changing pages, tabs/navbar, all that good stuff
-- [react-native-animatable](https://github.com/oblador/react-native-animatable): Super easy animations
-- [react-native-gifted-chat](https://github.com/FaridSafi/react-native-gifted-chat): Chat bubbles like iMessage
+## What it looks like
 
-## Resources
+[![Dashboard](https://iili.io/Jfl9Xn.png)](https://freeimage.host/i/capture-decran-2020-03-30-123639.Jfl9Xn)
+[![Profile](https://iili.io/Jfl3g4.png)](https://freeimage.host/i/capture-decran-2020-03-30-132035.Jfl3g4)
+[![Search-matches](https://iili.io/JflHss.png)](https://freeimage.host/i/capture-decran-2020-03-30-130950.JflHss)
+[![Chatroom](https://iili.io/JfldqG.png)](https://freeimage.host/i/capture-decran-2020-03-30-131939.JfldqG)
+[![Notifications](https://iili.io/Jfl21f.png)](https://freeimage.host/i/capture-decran-2020-03-30-131952.Jfl21f)
 
-- [Learn flexbox - Game #1](http://flexboxfroggy.com/)
-- [Learn flexbox - Game #2](http://www.flexboxdefense.com/)
-- [React Native Radio - Podcast](https://devchat.tv/react-native-radio)
-- [Example App - F8](https://github.com/fbsamples/f8app)
-- [Example App - HackerNews](https://github.com/iSimar/HackerNews-React-Native)
+## How we've been working
+* 🗓 Planning the project and user stories on Trello : [The Project Board](https://trello.com/b/RLNAgAuw/matcha-launch)
+* 🗄 Designing the database on dbdiagram.io
+[![Database-diagram](https://iili.io/JfcVO7.png)](https://freeimage.host/i/capture-decran-2020-03-30-121118.JfcVO7)
+* 🎨 Designing simple wireframes on Figma : [The Wireframes](https://www.figma.com/file/daD5AHhiB3XmfUPdi4PhsS/Matcha?node-id=0%3A1)
+
+## Credits
+
+👨🏻‍💻👩🏻‍💻Built and designed by [@yann120](https://github.com/yann120) & [@Segolene-Alquier](https://github.com/Segolene-Alquier/)
