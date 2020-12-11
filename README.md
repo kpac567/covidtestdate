@@ -1,68 +1,57 @@
-# Dating App
+# 💘 Dating app
+### Built with Node, React, Postgres, Socket.io & Material-UI
 
-## Project Demo
-Project Demo Link: (To Be Updated)
+## The project
 
-## Application Description
-Dating App is an online application that allows users to find and match with potential profiles that match their criteria. Users will be able to chat with other users that have also indicated interest in them. Users will also be able to find and filter potential profiles according to their criteria.
+Crush-19 is a dating app with the following features:
+* 🌈 non-binary gender & sexual orientation choices
+* 💘 matching algorithm based on preferences, distance, common Covids and popularity rates
+* 🛎 real-time notifications
+* 💌 chat
+* 🚫 possibility to block or report a user
 
+## How to quickly try it?
 
-## Database / Storage
-* MongoDB - NoSQL database using collections and documents
+👉 The project is hosted on Heroku: https://maatcha.herokuapp.com/ 
 
+💡 If you don't want to go through the sign-up process, here are a few login credentials you can use:
+```
+* maëlle16675 // xLDUD5AOSsLL2rs
+* romain81397 // K1XZ_qxOGYsQnr1
+* noémie36222 // ac3i707y193nqWs
+```
 
-## Technologies Used
-* HTML5, CSS , Bootstrap
-* Node.js
-* Express.js
-* ReactJS
-* Bcrypt
+## The stack
+### Back
+* [Node](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
+* [Postgres](https://www.postgresql.org/)
+* [Socket.io](https://socket.io/) : real-time engine (chat + notifications)
+* [AWS](https://aws.amazon.com/fr/s3/) : images hosting
 
+### Front
+* [React](https://reactjs.org/)
+* [Material-Ui](https://material-ui.com/) : React UI framework
 
-## Project Objective
-The main objective of this project is to create a CRUD application (Create, Read, Update and Delete) with the MVC framework (Model, View, Controller) using Node.js, MongoDB, Express and ReactJS.
+### API we used
+* [Google maps](https://developers.google.com/maps/documentation/javascript/tutorial)
+* [Mailjet](https://www.mailjet.com/)
+* [Faker](https://github.com/marak/Faker.js/) : to generate fake profiles for the seed
 
-## User Stories
-* As a user, I will like to be able to create an account with the following information:
-    * Username
-    * Age
-    * Gender
-    * Which gender you would like to find profiles for
-    * Add Avatar Image
-    * Set Account Password
-* As a user, I will like to be able to update my profile information:
-* As a user, I will like to be able to receive notifications on which profiles have liked me
-* As a user, I will like to be able to chat with my matched profiles
-* As a user, I will like to be able to see other potential users by filtering according to different criteria such as
-    * Gender
-    * Age
-    * Distance 
-    * Education
-    * Occupation
-    * Religion
-    * Relationship situation
+## What it looks like
 
-## Approach Taken
-* Set up MVC structure with basic CRUD routes for a user
-* Set up database with relevant collections and schema validation in MongoDB 
-* Build authentication flow for both venue owners and users
-* Update UX layer with HTML, CSS enhancements
-* Deploy application on Heroku / GitHub Pages
+[![Dashboard](https://iili.io/Jfl9Xn.png)](https://freeimage.host/i/capture-decran-2020-03-30-123639.Jfl9Xn)
+[![Profile](https://iili.io/Jfl3g4.png)](https://freeimage.host/i/capture-decran-2020-03-30-132035.Jfl3g4)
+[![Search-matches](https://iili.io/JflHss.png)](https://freeimage.host/i/capture-decran-2020-03-30-130950.JflHss)
+[![Chatroom](https://iili.io/JfldqG.png)](https://freeimage.host/i/capture-decran-2020-03-30-131939.JfldqG)
+[![Notifications](https://iili.io/Jfl21f.png)](https://freeimage.host/i/capture-decran-2020-03-30-131952.Jfl21f)
 
-## Accomplishments
-* To be updated
+## How we've been working
+* 🗓 Planning the project and user stories on Trello : [The Project Board](https://trello.com/b/RLNAgAuw/Crush-19-launch)
+* 🗄 Designing the database on dbdiagram.io
+[![Database-diagram](https://iili.io/JfcVO7.png)](https://freeimage.host/i/capture-decran-2020-03-30-121118.JfcVO7)
+* 🎨 Designing simple wireframes on Figma : [The Wireframes](https://www.figma.com/file/daD5AHhiB3XmfUPdi4PhsS/Crush-19?node-id=0%3A1)
 
-## Difficulties Faced
-* To Be updated
+## Credits
 
-## Additional Features
-* Social Login Authentication (e.g. Google OAuth, Facebook OAuth, etc)
-* In-built chat application
-* Notifications
-* Find users nearby
-* Filter users according to different criteria (e.g. Education, Occupation, Location, Age, Gender, etc)
-
-
-
-
-
+👨🏻‍💻👩🏻‍💻Built and designed by [@yann120](https://github.com/yann120) & [@Segolene-Alquier](https://github.com/Segolene-Alquier/)
