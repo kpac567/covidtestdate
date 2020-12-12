@@ -55,6 +55,5 @@
   },
   "devDependencies": {
     "react-scripts": "1.0.13"
-  },
-  "proxy": "https://staging.catholicsingles.com/"
+  }
 }
