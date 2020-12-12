@@ -1,57 +1,59 @@
-# 💘 Dating app
-### Built with Node, React, Postgres, Socket.io & Material-UI
+# Catholic Singles Client Application
 
-## The project
+![proto](https://content.screencast.com/users/prageer/folders/Default/media/b17942ca-0493-4f77-ad86-8a95fda9cccb/catholicsingles.png)
 
-crush is a dating app with the following features:
-* 🌈 non-binary gender & sexual orientation choices
-* 💘 matching algorithm based on preferences, distance, common interests and popularity rates
-* 🛎 real-time notifications
-* 💌 chat
-* 🚫 possibility to block or report a user
+## Following technologies are used
+- axios
+- babel
+- express
+- bcryptjs
+- mongoose
+- react
+- react-router-dom
+- react-select
+- recompose
+- react-addons-css-transition-group
+- immutable
+- redux
+- redux-saga
+- recompose
+- redux-immutable
+- materializecss
+- react-hot-loader
+- webpack
+- webpack-dev-server
+- style-loader
+- css-loader
 
-## How to quickly try it?
+## Prerequisites
 
-👉 The project is hosted on Heroku: https://maatcha.herokuapp.com/ 
+- Node.js 6^
+- npm 3^
+- MongoDB 3^
 
-💡 If you don't want to go through the sign-up process, here are a few login credentials you can use:
+## Running in development
+
 ```
-* maëlle16675 // xLDUD5AOSsLL2rs
-* romain81397 // K1XZ_qxOGYsQnr1
-* noémie36222 // ac3i707y193nqWs
+yarn install
+yarn start
 ```
 
-## The stack
-### Back
-* [Node](https://nodejs.org/en/)
-* [Express](https://expressjs.com/)
-* [Postgres](https://www.postgresql.org/)
-* [Socket.io](https://socket.io/) : real-time engine (chat + notifications)
-* [AWS](https://aws.amazon.com/fr/s3/) : images hosting
+## Deployment
 
-### Front
-* [React](https://reactjs.org/)
-* [Material-Ui](https://material-ui.com/) : React UI framework
+This application uses capistrano for deployment.  Once you have appropriate SSH
+access to the server, deploys can be automated.
 
-### API we used
-* [Google maps](https://developers.google.com/maps/documentation/javascript/tutorial)
-* [Mailjet](https://www.mailjet.com/)
-* [Faker](https://github.com/marak/Faker.js/) : to generate fake profiles for the seed
+### Setting up Capistrano
 
-## What it looks like
+You will need a recent version of Ruby installed.
 
-[![Dashboard](https://iili.io/Jfl9Xn.png)](https://freeimage.host/i/capture-decran-2020-03-30-123639.Jfl9Xn)
-[![Profile](https://iili.io/Jfl3g4.png)](https://freeimage.host/i/capture-decran-2020-03-30-132035.Jfl3g4)
-[![Search-matches](https://iili.io/JflHss.png)](https://freeimage.host/i/capture-decran-2020-03-30-130950.JflHss)
-[![Chatroom](https://iili.io/JfldqG.png)](https://freeimage.host/i/capture-decran-2020-03-30-131939.JfldqG)
-[![Notifications](https://iili.io/Jfl21f.png)](https://freeimage.host/i/capture-decran-2020-03-30-131952.Jfl21f)
+```
+gem install bundler
+bundle install # Fetches capistrano and capistrano dependencies
+```
 
-## How we've been working
-* 🗓 Planning the project and user stories on Trello : [The Project Board](https://trello.com/b/RLNAgAuw/crush-launch)
-* 🗄 Designing the database on dbdiagram.io
-[![Database-diagram](https://iili.io/JfcVO7.png)](https://freeimage.host/i/capture-decran-2020-03-30-121118.JfcVO7)
-* 🎨 Designing simple wireframes on Figma : [The Wireframes](https://www.figma.com/file/daD5AHhiB3XmfUPdi4PhsS/crush?node-id=0%3A1)
+### Deploying to staging and production servers
 
-## Credits
+To deploy to staging, use `cap staging deploy`
 
-👨🏻‍💻👩🏻‍💻Built and designed by [@yann120](https://github.com/yann120) & [@Segolene-Alquier](https://github.com/Segolene-Alquier/)
+To deploy to production, use `cap production deploy`

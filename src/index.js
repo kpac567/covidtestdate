@@ -1,13 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-// import './components/app/index.css';
-import App from './components/app/App';
-import * as serviceWorker from './serviceWorker';
+import jwtDecode from 'jwt-decode';
+import { render } from 'react-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
+import renderRoutes from './routes';
+import configureStore from './store';
+import { AUTH_USER } from './actions/types';
+import Cookies from 'universal-cookie'
 
-// ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<App />, document.getElementById('root'));
+// import registerServiceWorker from './registerServiceWorker';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const initialState = {};
+const history = createBrowserHistory()
+const store = configureStore(initialState, history);
+const cookies = new Cookies();
+
+const token = cookies.get('token')
+
+if (token) {
+  const valid = jwtDecode(token).exp > (new Date()).getTime()/1000;
+  // Update application state. User has token and is probably authenticated
+  valid && store.dispatch({type: AUTH_USER, token});
+}
+
+render(
+  renderRoutes(store, history), 
+  document.getElementById('root')
+);
+
+// registerServiceWorker();
